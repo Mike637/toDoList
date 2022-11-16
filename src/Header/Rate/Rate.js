@@ -2,26 +2,21 @@ import React,{useState,useEffect} from 'react';
 
 const Rate = () => 
 {
-    const [rubleRate,setRubleRate]  = useState({});
+    const [rubleRate,setRubleRate]  = useState([]);
     useEffect(() =>
     {
         fetch("https://www.cbr-xml-daily.ru/daily_json.js")
         .then((data) => data.json())
         .then((data) => {
             console.log(data);
-            setRubleRate(prev =>{
-                return {
-                    ...prev,
-                    USD:data.Valute.USD,
-                    EUR:data.Valute.EUR
-                        }
-            });    
+            setRubleRate([data.Valute.USD,data.Valute.EUR]);    
         })
+        .catch(error => console.log(error))
     },[])
     return (
-        <div>
-       <p>{JSON.stringify(rubleRate.USD)}</p>
-       <p>{JSON.stringify(rubleRate.EUR)}</p>
+        <div className="rate">
+            <h1>Курс валют</h1>
+       {rubleRate.map(item => <p>{item.Nominal} {item.CharCode} - {item.Value} Rub</p>)}
        </div>
     )
 }
