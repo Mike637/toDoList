@@ -6,7 +6,9 @@ const Weather = () =>
   const coords = useGeolocation();
   const ApiKey = "be0a6dba7106c7567950bf9f620052a7";
   const url = `http://api.openweathermap.org/data/2.5/weather?units=metric&lat=${coords.coordinate.lat}&lon=${coords.coordinate.lng}&appid=${ApiKey}`;
+ /*
   console.log(url)
+  */
   const [location,setLocation] = useState({});
   useEffect(() => {
     fetch(url)

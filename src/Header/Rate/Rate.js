@@ -8,7 +8,9 @@ const Rate = () =>
         fetch("https://www.cbr-xml-daily.ru/daily_json.js")
         .then((data) => data.json())
         .then((data) => {
+            /*
             console.log(data);
+            */
             setRubleRate([data.Valute.USD,data.Valute.EUR]);    
         })
         .catch(error => console.log(error))
@@ -16,7 +18,7 @@ const Rate = () =>
     return (
         <div className="rate">
             <h1>Курс валют</h1>
-       {rubleRate.map(item => <p>{item.Nominal} {item.CharCode} - {item.Value} Rub</p>)}
+       {rubleRate.map(item => <p key={item.ID}>{item.Nominal} {item.CharCode} - {item.Value} Rub</p>)}
        </div>
     )
 }
