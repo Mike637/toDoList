@@ -16,6 +16,16 @@ const ToDo = () =>
           
      setToDoList(prev =>  [...prev,textInput.current.value]);                                 
     }
+const addToDoEnterClick = (e) => 
+{
+    
+    if (e.key === "Enter")
+    {
+        e.preventDefault();
+        addToDo();
+    }
+}
+
     useEffect(() => {
 localStorage.setItem("toDo",JSON.stringify(toDoList))
     },[toDoList])
@@ -29,7 +39,7 @@ localStorage.setItem("toDo",JSON.stringify(toDoList))
             <div className="main__container">
                 <div className="main__toDo">
                     <h3>ToDoApp</h3>
-                    <input  type="text" ref={textInput} placeholder = "Type here..."/>
+                    <input  type="text" ref={textInput} onKeyDown = {addToDoEnterClick}  placeholder = "Type here..."/>
                     <button onClick={addToDo}>Нажми</button>
                 </div>
                 
