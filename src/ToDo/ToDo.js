@@ -2,6 +2,11 @@ import './ToDo.css'
 import React,{useState,useEffect} from 'react'
 import PropComponent from './PropComponent/PropComponent'
 
+const arr = [{id:1,name:"Mike",surname:"Polikarpov"},{id:3,name:"AleKsey",surname:"Yashonkov"},{id:20,name:"Alex",surname:"Vlasov"}]
+const index = arr.findIndex(el => el.id === 20);
+
+arr.splice(index,1,{...arr[index],name:"Vasya"})
+console.log(arr)
 
 const generateId = () => (
     Math.random().toString(16).slice(2) + new Date().getTime().toString(36)
@@ -67,6 +72,15 @@ localStorage.setItem("toDo",JSON.stringify(toDoList))
     key = {item.id}
     id = {item.id}
     onDone = {(id) => setToDoList(array.filter(task => task.id !==id))}
+    onChange = {(value,id) =>{
+        setToDoList(prev => {
+            let newState = [...prev]
+            let ind = newState.findIndex(task => task.id === id)
+            newState.splice(index,1,{...newState[ind],name:value})
+            return newState
+
+        })
+    } }
     
     />))} 
                   

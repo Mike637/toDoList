@@ -1,9 +1,12 @@
-import React,{useState,useEffect} from 'react'
+import React,{useState} from 'react'
 import PropTypes from 'prop-types'
-
-const PropComponent = ({name,index,id,onDone}) => 
+import styles from "./../../styles/styles"
+const PropComponent = ({name,index,id,onDone,onChange,onDelete}) => 
 {
     const [checked,setChecked] = useState(false);
+    const [showing,setShowing] = useState(false);
+    const [value,SetValue] =useState(name) 
+   
 return (
     
     <div index ={index}>
@@ -12,6 +15,27 @@ return (
         setTimeout(() => onDone(id),1000);
         }}   />
     <p>{name}</p>
+    
+    {showing === true
+    ?<><input value={value} style={styles.PropComponent} onChange={(e)=> SetValue(e.target.value)} className="EditName" type="text"/>
+    <button onClick={
+        () => {
+            onChange(value,id);
+            setShowing(prev=> !prev)
+        }
+         }>Ок</button>
+        </> 
+       : <div>
+     <button   className="Edit" onClick ={ () => setShowing(prev=> !prev)}>Edit</button>
+     <button   className="Delete" onClick ={ () => onDelete(id)}>Delete</button>
+    </div>
+    
+         
+    
+       
+}
+    
+   
     </div>
     
 )
