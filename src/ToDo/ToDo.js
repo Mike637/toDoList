@@ -17,7 +17,7 @@ const generateId = () => (
 const ToDo = () => 
 {   
     const [toDoList,setToDoList] = useState(JSON.parse(localStorage.getItem("toDo")) || []); 
-    
+    const [val,setVal] = useState("")
     
     
     let textInput = React.createRef() 
@@ -26,15 +26,13 @@ const ToDo = () =>
     
     const addToDo = () => 
     { 
-       if (textInput.current.value.trim() === "")
+       if (!textInput.current.value.trim())
        {
         return
        } 
-          /*
-     setToDoList(prev =>  [...prev,textInput.current.value]);
-     */
+          
      setToDoList(prev => [...prev,{id:generateId(),name:textInput.current.value}]);
-     
+     setVal("")
                                    
     }
 const addToDoEnterClick = (e) => 
@@ -60,7 +58,7 @@ localStorage.setItem("toDo",JSON.stringify(toDoList))
             <div className="main__container">
                 <div className="main__toDo">
                     <h3>ToDoApp</h3>
-                    <input  type="text" ref={textInput}   onKeyDown = {addToDoEnterClick}   placeholder = "Type here..."/>
+                    <input  type="text" ref={textInput} value={val} onChange = {(e) =>setVal(e.target.value)}   onKeyDown = {addToDoEnterClick}   placeholder = "Type here..."/>
                     <button onClick={addToDo}>Добавить</button>
                 </div>
                 
@@ -71,7 +69,7 @@ localStorage.setItem("toDo",JSON.stringify(toDoList))
       index ={index} 
     key = {item.id}
     id = {item.id}
-    onDone = {(id) => setToDoList(array.filter(task => task.id !==id))}
+    onDelete = {(id) => setToDoList(array.filter(task => task.id !==id))}
     onChange = {(value,id) =>{
         setToDoList(prev => {
             let newState = [...prev]
@@ -80,7 +78,8 @@ localStorage.setItem("toDo",JSON.stringify(toDoList))
             return newState
 
         })
-    } }
+    }}
+    
     
     />))} 
                   
