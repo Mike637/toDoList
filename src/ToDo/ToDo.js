@@ -1,12 +1,8 @@
 import './ToDo.css'
 import React,{useState,useEffect} from 'react'
-import PropComponent from './PropComponent/PropComponent'
+import  TaskChangeDelete from './TaskChangeDelete/TaskChangeDelete'
 
-const arr = [{id:1,name:"Mike",surname:"Polikarpov"},{id:3,name:"AleKsey",surname:"Yashonkov"},{id:20,name:"Alex",surname:"Vlasov"}]
-const index = arr.findIndex(el => el.id === 20);
 
-arr.splice(index,1,{...arr[index],name:"Vasya"})
-console.log(arr)
 
 const generateId = () => (
     Math.random().toString(16).slice(2) + new Date().getTime().toString(36)
@@ -24,7 +20,7 @@ const ToDo = () =>
      
    
     
-    const addToDo = () => 
+    const addTask = () => 
     { 
        if (!textInput.current.value.trim())
        {
@@ -35,14 +31,25 @@ const ToDo = () =>
      setVal("")
                                    
     }
-const addToDoEnterClick = (e) => 
+const addTaskEnterClick = (e) => 
 {
     
     if (e.key === "Enter")
     {
         e.preventDefault();
-        addToDo();
+        addTask();
     }
+}
+
+const changeTask = (value,id,index) => 
+{
+    setToDoList(prev => {
+        let newState = [...prev]
+        let ind = newState.findIndex(task => task.id === id)
+        newState.splice(index,1,{...newState[ind],name:value})
+        return newState
+
+    })
 }
 
     useEffect(() => {
@@ -58,30 +65,24 @@ localStorage.setItem("toDo",JSON.stringify(toDoList))
             <div className="main__container">
                 <div className="main__toDo">
                     <h3>ToDoApp</h3>
-                    <input  type="text" ref={textInput} value={val} onChange = {(e) =>setVal(e.target.value)}   onKeyDown = {addToDoEnterClick}   placeholder = "Type here..."/>
-                    <button onClick={addToDo}>Добавить</button>
+                    <input  type="text" ref={textInput} value={val} onChange = {e =>setVal(e.target.value)}   onKeyDown = {addTaskEnterClick}   placeholder = "Type here..."/>
+                    <button onClick={addTask}>Добавить</button>
                 </div>
                 
                 {toDoList.length === 0? <p>There is no one Task</p>:toDoList.map((item,index,array) => (
     
-    <PropComponent 
+    < TaskChangeDelete
     name ={item.name} 
       index ={index} 
     key = {item.id}
     id = {item.id}
-    onDelete = {(id) => setToDoList(array.filter(task => task.id !==id))}
-    onChange = {(value,id) =>{
-        setToDoList(prev => {
-            let newState = [...prev]
-            let ind = newState.findIndex(task => task.id === id)
-            newState.splice(index,1,{...newState[ind],name:value})
-            return newState
-
-        })
-    }}
+    onDelete = {id => setToDoList(array.filter(task => task.id !==id))}
+    onChange = {(value,id,index) =>changeTask(value,id,index)}
+    />))}
     
     
-    />))} 
+    
+     
                   
                
             </div>

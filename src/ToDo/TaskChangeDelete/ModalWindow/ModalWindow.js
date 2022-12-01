@@ -1,5 +1,5 @@
 import React from "react";
-import Modal from "./Modal.css"
+import Modal from "./ModalWindow.css"
 
 const ModalWindow = ({modalActive,setModalActive,id,onDelete}) => {
     
