@@ -1,4 +1,58 @@
 main 
 {
     flex:1 1 auto;
+    background-color:#9df9ef;
+    min-height:70vh;
+    display:flex;
+    justify-content: center;
+    align-items:center;
+}
+
+
+
+.addTask__title 
+{
+   font-family: Arial sans-serif;
+   font-size:40px;
+   font-weight:1000;
+  text-align:center;
+  color:blueviolet
+}
+
+
+.addTask__input 
+{
+min-width:30vw;
+box-sizing: border-box;
+}
+
+.addTask__input:focus 
+{
+    outline:none;
+    border:none;
+} 
+
+
+.addTask__input, .addTask__button 
+{
+    min-height:5vh;
+    border-radius: 5px;
+    border:2px solid red;
+} 
+
+.addTask__button 
+{
+    background-color:rgb(132, 0, 255);
+    color:white;
+    font-weight:500;
+}
+
+.addTask__button:hover 
+{
+    cursor:pointer;
+}
+
+.addTask__button:active
+{
+    background-color:red
 }

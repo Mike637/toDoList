@@ -1,6 +1,7 @@
 import './ToDo.css'
 import React,{useState,useEffect} from 'react'
 import  TaskChangeDelete from './TaskChangeDelete/TaskChangeDelete'
+import  "./ToDo.css"
 
 
 
@@ -63,12 +64,12 @@ localStorage.setItem("toDo",JSON.stringify(toDoList))
     return (
         <main>
             <div className="main__container">
-                <div className="main__toDo">
-                    <h3>ToDoApp</h3>
-                    <input  type="text" ref={textInput} value={val} onChange = {e =>setVal(e.target.value)}   onKeyDown = {addTaskEnterClick}   placeholder = "Type here..."/>
-                    <button onClick={addTask}>Добавить</button>
+                <div className="main__addTask addTask">
+                    <h3 className ="addTask__title">ToDoApp</h3>
+                    <input className="addTask__input"  type="text" ref={textInput} value={val} onChange = {e =>setVal(e.target.value)}   onKeyDown = {addTaskEnterClick}   placeholder = "Type here..."/>
+                    <button className="addTask__button" onClick={addTask}>Add</button>
                 </div>
-                
+                <div className="main__showEditDeleteTask showEditDeleteTask">
                 {toDoList.length === 0? <p>There is no one Task</p>:toDoList.map((item,index,array) => (
     
     < TaskChangeDelete
@@ -84,7 +85,7 @@ localStorage.setItem("toDo",JSON.stringify(toDoList))
     
      
                   
-               
+    </div>  
             </div>
         </main>
     )

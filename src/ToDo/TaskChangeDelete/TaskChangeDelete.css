@@ -1,0 +1,14 @@
+
+
+ul > li {
+    position:relative;
+    left:0;
+    top:0;
+    z-index:0;
+}
+
+li input {
+    position:absolute;
+    left:-50px;
+    top:20%;
+}
