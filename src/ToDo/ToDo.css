@@ -8,21 +8,19 @@ main
     align-items:center;
 }
 
-
-
 .addTask__title 
 {
    font-family: Arial sans-serif;
    font-size:40px;
    font-weight:1000;
   text-align:center;
-  color:blueviolet
+  color:blueviolet;
 }
 
 
 .addTask__input 
 {
-min-width:30vw;
+min-width:50vw;
 box-sizing: border-box;
 }
 
@@ -35,7 +33,7 @@ box-sizing: border-box;
 
 .addTask__input, .addTask__button 
 {
-    min-height:5vh;
+    min-height:8vh;
     border-radius: 5px;
     border:2px solid red;
 } 
@@ -45,6 +43,7 @@ box-sizing: border-box;
     background-color:rgb(132, 0, 255);
     color:white;
     font-weight:500;
+    width:100px;
 }
 
 .addTask__button:hover 

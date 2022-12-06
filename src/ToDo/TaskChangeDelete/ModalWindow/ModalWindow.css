@@ -10,18 +10,61 @@ left:0;
 display:flex;
 align-items:center;
 justify-content:center;
-transform:scale(0);
+opacity: 0;
+pointer-events: none;
+transition:0.5s
 
 }
 
 .modal.active 
 {
-    transform:scale(1);
+    opacity: 1;
+    pointer-events: all;
 }
 
 .modal__container 
 {
 padding:20px;
-border-radius:12px;
+border-radius:12px 0 12px 12px;
 background-color:white;
+transform:scale(0.5);
+transition:0.4s all;
+}
+
+.modal__container.active 
+{
+    transform:scale(1);
+} 
+
+.modal__close 
+{
+    position:absolute;
+    left:93%;
+    top:0px;
+    
+
+}
+
+.modal__buttons 
+{
+    display:flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.modal__buttonYes,
+.modal__buttonNo,
+.modal__close 
+{
+    font-weight:600;
+}
+
+.modal__buttonYes 
+{
+    background-color:red;
+}
+
+.modal__buttonNo
+{
+    background-color:blue;
 }

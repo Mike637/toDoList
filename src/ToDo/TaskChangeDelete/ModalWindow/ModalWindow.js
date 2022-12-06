@@ -10,12 +10,14 @@ const deleteFunction = (id) =>
 }
 
     return (
-        <div className ={modalActive ? "modal active":"modal"}>
-            <div className="modal__container">
-            <p>Are you sure you want to delete this task?</p>
-            <button onClick={() => deleteFunction(id)}>Yes</button>
-            <button onClick = {() => setModalActive(false)}>No</button>
-            <button className="close" onClick = {() => setModalActive(false)}>&times;</button>
+        <div className ={modalActive ? "main__modal modal active":"main__modal modal"}>
+            <div className={modalActive ? "modal__container active":"modal__container"}>
+            <p className="modal__text">Are you sure you want to delete this task?</p>
+            <div className="modal__buttons">
+            <button className="modal__buttonYes" onClick={() => deleteFunction(id)}>Yes</button>
+            <button className = "modal__buttonNo" onClick = {() => setModalActive(false)}>No</button>
+            </div>
+            <button className="modal__close" onClick = {() => setModalActive(false)}>&times;</button>
             </div>
         </div>
     )

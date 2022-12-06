@@ -31,23 +31,35 @@ const changeFunctionClickEnter = (e) =>
 return (
     
     <div className="showEditDeleteTask__Task">
-        <ul>
-    <li><input className = "showEditDeleteTask__checkbox" type="checkbox" value={name}  checked={checked} onChange = {() => {
+     
+    {showing === true?
+    <div class="showEditDeleteTask__showingIsFalse showingIsFalse">
+        <div className="showingIsFalse__inputTextBlock">
+   <p><input className="showingIsFalse__inputText" value={value}  onKeyDown = {changeFunctionClickEnter} onChange={(e)=> setValue(e.target.value)}  type="text"/></p>
+    </div>
+    <div>
+    <button className="showingIsFalse__buttonOk" onClick={ () => changeFunction(value,id,index)}>Ок</button>   
+    <button className = "showingIsFalse__buttonCancel" onClick = {() =>{setShowing(false)}} >Cancel</button>                           
+    </div>
+    </div> 
+       : 
+       <div class="showEditDeleteTask__showingIsTrue showingIsTrue">
+       <div class="showingIsTrue__showTask">
+         <ul>
+    <li><input className = "showingIsTrue__checkbox" type="checkbox" value={name}  checked={checked} onChange = {() => {
         setChecked(true);
         setTimeout(() => onDelete(id),1000);
         }}/>
-    <p className="showEditDeleteTask__name">{name}</p></li>
+    <p className="showingIsTrue__name">{name}</p></li>
     </ul>
-    {showing === true
-    ?<>
-    <input className="showEditDeleteTask__inputText" value={value}  onKeyDown = {changeFunctionClickEnter} onChange={(e)=> setValue(e.target.value)}  type="text"/>
-    <button className="showEditDeleteTask__buttonOk" onClick={ () => changeFunction(value,id,index)}>Ок</button>   
-    <button className = "showEditDeleteTask__buttonCancel" onClick = {() =>{setShowing(false)}} >Cancel</button>                           
-    </> 
-       : <>
-     <button   className="showEditDeleteTask__buttonEdit" onClick ={ () => setShowing(prev=> !prev)}>Edit</button>
-     <button   className="showEditDeleteTask__buttonDelete" onClick ={ () => setActive(true)}>Delete</button>
-    </>            
+    </div>
+
+    <div class="showingIsTrue__editDeleteButton"> 
+     <button   className="showingIsTrue__buttonEdit" onClick ={ () => setShowing(prev=> !prev)}>Edit</button>
+     <button   className="showingIsTrue__buttonDelete" onClick ={ () => setActive(true)}>Delete</button>
+     </div> 
+     </div>
+                
 }
     
    <ModalWindow 

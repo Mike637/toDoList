@@ -1,3 +1,8 @@
+.showEditDeleteTask__Task 
+{   
+    width:100%;    
+}
+
 
 
 ul > li {
@@ -9,6 +14,86 @@ ul > li {
 
 li input {
     position:absolute;
-    left:-50px;
+    left:-35px;
     top:20%;
+}
+
+.showEditDeleteTask__Task {
+    background-color:#a28089;
+    margin:5% 0 0 0;
+}
+
+.showingIsTrue,
+.showingIsFalse
+{
+    display:flex;
+    align-items: center;
+    justify-content:space-between;
+    
+}
+
+.showingIsTrue__name 
+{
+    font-size:20;
+    font-weight:500;
+    font-style:italic;
+    
+}
+
+.showingIsTrue__buttonEdit,
+.showingIsTrue__buttonDelete,
+.showingIsFalse__buttonOk,
+.showingIsFalse__buttonCancel
+{
+    width:60px;
+    height:30px;
+    background-color:blueviolet;
+    color:white;
+    font-weight:600;
+   border:1px solid;
+
+}
+
+.showingIsTrue__buttonEdit:hover,
+.showingIsTrue__buttonDelete:hover,
+.showingIsFalse__buttonOk:hover,
+.showingIsFalse__buttonCancel:hover
+{
+    cursor:pointer
+}
+
+.showingIsTrue__buttonEdit:active,
+.showingIsTrue__buttonDelete:active,
+.showingIsFalse__buttonOk:active,
+.showingIsFalse__buttonCancel:active
+{
+background-color:red;
+}
+
+.showingIsTrue__buttonEdit,
+.showingIsFalse__buttonOk
+{
+    border-radius:5px 0 0 5px
+}
+
+.showingIsTrue__buttonDelete,
+.showingIsFalse__buttonCancel
+ {
+    border-radius:0 5px 5px 0;
+}
+.showingIsFalse__inputText 
+{
+    max-width:300px;
+    height:30px;
+    border-radius:5px;
+    border:none;
+    outline:none;
+    margin:0 0 0 1%;
+}
+
+
+.showingIsFalse__inputText:focus 
+{
+    border: 2px solid red;
+    
 }
