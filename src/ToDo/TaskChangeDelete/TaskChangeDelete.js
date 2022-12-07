@@ -7,7 +7,9 @@ const TaskChangeDelete = ({ name, index, id, onDelete, onChange }) => {
   const [showing, setShowing] = useState(false);
   const [value, setValue] = useState(name);
   const [active, setActive] = useState(false);
-/* Functions  changeFunction and changeFunctionClickEnter*/ 
+/* Functions  changeFunction and changeFunctionClickEnter contain  onChange-state function
+which are transmitted into component ToDo
+*/ 
   const changeFunction = (value, id, index) => {
     if (!value.trim()) {
       return;
@@ -26,11 +28,11 @@ const TaskChangeDelete = ({ name, index, id, onDelete, onChange }) => {
   return (
     <div className="showEditDeleteTask__Task">
       {showing === true ? (
-        <div class="showEditDeleteTask__showingIsFalse showingIsFalse">
-          <div className="showingIsFalse__inputTextBlock">
+        <div class="showEditDeleteTask__showingIsTrue showingIsTrue">
+          <div className="showingIsTrue__inputTextBlock">
             <p>
               <input
-                className="showingIsFalse__inputText"
+                className="showingIsTrue__inputText"
                 value={value}
                 onKeyDown={changeFunctionClickEnter}
                 onChange={(e) => setValue(e.target.value)}
@@ -40,13 +42,13 @@ const TaskChangeDelete = ({ name, index, id, onDelete, onChange }) => {
           </div>
           <div>
             <button
-              className="showingIsFalse__buttonOk"
+              className="showingIsTrue__buttonOk"
               onClick={() => changeFunction(value, id, index)}
             >
               Ок
             </button>
             <button
-              className="showingIsFalse__buttonCancel"
+              className="showingIsTrue__buttonCancel"
               onClick={() => {
                 setShowing(false);
               }}
@@ -56,12 +58,12 @@ const TaskChangeDelete = ({ name, index, id, onDelete, onChange }) => {
           </div>
         </div>
       ) : (
-        <div class="showEditDeleteTask__showingIsTrue showingIsTrue">
-          <div class="showingIsTrue__showTask">
+        <div class="showEditDeleteTask__showingIsFalse showingIsFalse">
+          <div class="showingIsFalse__showTask">
             <ul>
               <li>
                 <input
-                  className="showingIsTrue__checkbox"
+                  className="showingIsFalse__checkbox"
                   type="checkbox"
                   value={name}
                   checked={checked}
@@ -70,20 +72,20 @@ const TaskChangeDelete = ({ name, index, id, onDelete, onChange }) => {
                     setTimeout(() => onDelete(id), 1000);
                   }}
                 />
-                <p className="showingIsTrue__name">{name}</p>
+                <p className="showingIsFalse__name">{name}</p>
               </li>
             </ul>
           </div>
 
-          <div class="showingIsTrue__editDeleteButton">
+          <div class="showingIsFalse__editDeleteButton">
             <button
-              className="showingIsTrue__buttonEdit"
+              className="showingIsFalse__buttonEdit"
               onClick={() => setShowing((prev) => !prev)}
             >
               Edit
             </button>
             <button
-              className="showingIsTrue__buttonDelete"
+              className="showingIsFalse__buttonDelete"
               onClick={() => setActive(true)}
             >
               Delete

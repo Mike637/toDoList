@@ -30,17 +30,17 @@ li input {
     
 }
 
-.showingIsTrue__name 
+.showingIsFalse__name 
 {
     font-size:20;
     font-weight:500;
     font-style:italic;    
 }
 
-.showingIsTrue__buttonEdit,
-.showingIsTrue__buttonDelete,
-.showingIsFalse__buttonOk,
-.showingIsFalse__buttonCancel
+.showingIsFalse__buttonEdit,
+.showingIsFalse__buttonDelete,
+.showingIsTrue__buttonOk,
+.showingIsTrue__buttonCancel
 {
     width:60px;
     height:30px;
@@ -50,34 +50,34 @@ li input {
    border:1px solid;
 }
 
-.showingIsTrue__buttonEdit:hover,
-.showingIsTrue__buttonDelete:hover,
-.showingIsFalse__buttonOk:hover,
-.showingIsFalse__buttonCancel:hover
+.showingIsFalse__buttonEdit:hover,
+.showingIsFalse__buttonDelete:hover,
+.showingIsTrue__buttonOk:hover,
+.showingIsTrue__buttonCancel:hover
 {
     cursor:pointer
 }
 
-.showingIsTrue__buttonEdit:active,
-.showingIsTrue__buttonDelete:active,
-.showingIsFalse__buttonOk:active,
-.showingIsFalse__buttonCancel:active
+.showingIsFalse__buttonEdit:active,
+.showingIsFalse__buttonDelete:active,
+.showingIsTrue__buttonOk:active,
+.showingIsTrue__buttonCancel:active
 {
 background-color:red;
 }
 
-.showingIsTrue__buttonEdit,
-.showingIsFalse__buttonOk
+.showingIsFalse__buttonEdit,
+.showingIsTrue__buttonOk
 {
     border-radius:5px 0 0 5px
 }
 
-.showingIsTrue__buttonDelete,
-.showingIsFalse__buttonCancel
+.showingIsFalse__buttonDelete,
+.showingIsTrue__buttonCancel
 {
     border-radius:0 5px 5px 0;
 }
-.showingIsFalse__inputText 
+.showingIsTrue__inputText 
 {
     max-width:300px;
     height:30px;
@@ -87,7 +87,7 @@ background-color:red;
     margin:0 0 0 1%;
 }
 
-.showingIsFalse__inputText:focus 
+.showingIsTrue__inputText:focus 
 {
     border: 2px solid red;   
 }

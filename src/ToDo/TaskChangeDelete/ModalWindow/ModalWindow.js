@@ -2,6 +2,9 @@ import React from "react";
 import "./ModalWindow.css";
 
 const ModalWindow = ({ modalActive, setModalActive, id, onDelete }) => {
+  /* Function  deleteFunction  contains  onDelete-state function
+which is  transmitted into component TaskChangeDelete. 
+*/ 
   const deleteFunction = (id) => {
     onDelete(id);
     setModalActive(false);
