@@ -28,7 +28,7 @@ which are transmitted into component ToDo
   return (
     <div className="showEditDeleteTask__Task">
       {showing === true ? (
-        <div class="showEditDeleteTask__showingIsTrue showingIsTrue">
+        <div className="showEditDeleteTask__showingIsTrue showingIsTrue">
           <div className="showingIsTrue__inputTextBlock">
             <p>
               <input
@@ -58,8 +58,8 @@ which are transmitted into component ToDo
           </div>
         </div>
       ) : (
-        <div class="showEditDeleteTask__showingIsFalse showingIsFalse">
-          <div class="showingIsFalse__showTask">
+        <div className ="showEditDeleteTask__showingIsFalse showingIsFalse">
+          <div className="showingIsFalse__showTask">
             <ul>
               <li>
                 <input
@@ -77,7 +77,7 @@ which are transmitted into component ToDo
             </ul>
           </div>
 
-          <div class="showingIsFalse__editDeleteButton">
+          <div className="showingIsFalse__editDeleteButton">
             <button
               className="showingIsFalse__buttonEdit"
               onClick={() => setShowing((prev) => !prev)}
