@@ -2,7 +2,7 @@ main
 {
     flex:1 1 auto;
     background-color:#9df9ef;
-    min-height:70vh;
+    min-height:100vh;
     display:flex;
     justify-content: center;
     align-items:center;
@@ -17,7 +17,6 @@ main
   color:blueviolet;
 }
 
-
 .addTask__input 
 {
 min-width:50vw;
@@ -29,7 +28,6 @@ box-sizing: border-box;
     outline:none;
     border:none;
 } 
-
 
 .addTask__input, .addTask__button 
 {
@@ -53,5 +51,5 @@ box-sizing: border-box;
 
 .addTask__button:active
 {
-    background-color:red
+    background-color:red;
 }
