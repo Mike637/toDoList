@@ -1,6 +1,6 @@
-import "./App.css";
-import React from "react";
-import ToDo from "./ToDo/ToDo";
+import './App.css';
+import React from 'react';
+import ToDo from './ToDo/ToDo';
 
 function App() {
   return <ToDo />;

@@ -1,13 +1,13 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
+import './TaskChangeDelete.css';
+import ModalWindow from './ModalWindow/ModalWindow';
 
-import "./TaskChangeDelete.css";
-import ModalWindow from "./ModalWindow/ModalWindow";
 const TaskChangeDelete = ({ name, index, id, onDelete, onChange }) => {
   const [checked, setChecked] = useState(false);
   const [showing, setShowing] = useState(false);
   const [value, setValue] = useState(name);
   const [active, setActive] = useState(false);
-/* Functions  changeFunction and changeFunctionClickEnter contain  onChange-state function
+  /*  Functions  changeFunction and changeFunctionClickEnter contain  onChange-state function
 which are transmitted into component ToDo
 */ 
   const changeFunction = (value, id, index) => {
@@ -19,17 +19,17 @@ which are transmitted into component ToDo
   };
 
   const changeFunctionClickEnter = (e) => {
-    if (e.key === "Enter") {
+    if (e.key === 'Enter') {
       e.preventDefault();
       changeFunction(value, id, index);
     }
   };
 
   return (
-    <div className="showEditDeleteTask__Task">
+    <div className='showEditDeleteTask__Task'>
       {showing === true ? (
-        <div className="showEditDeleteTask__showingIsTrue showingIsTrue">
-          <div className="showingIsTrue__inputTextBlock">
+        <div className='showEditDeleteTask__showingIsTrue showingIsTrue'>
+          <div className='showingIsTrue__inputTextBlock'>
             <p>
               <input
                 className="showingIsTrue__inputText"
